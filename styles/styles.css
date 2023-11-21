@@ -1,0 +1,73 @@
+/* Add a loading progress bar */
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3498db;
+    z-index: 9999;
+    transition: width 0.3s ease;
+}
+/* Add styles for the "Scroll to Top" button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#scroll-to-top:hover {
+    background-color: #2980b9;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #3498db;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #2980b9;
+}
+
+/* Resume Button */
+.resume-section {
+    text-align: center; /* Center the content in the section */
+    margin-top: 50px; /* Adjust the margin as needed */
+}
+
+#resume-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#resume-button:hover {
+    background-color: #2980b9;
+}
+
+/* Map */
+#map {
+    height: 400px; /* Adjust the height as needed */
+    width: 100%;
+    margin-top: 20px;
+}

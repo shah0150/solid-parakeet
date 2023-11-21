@@ -25,7 +25,7 @@
 
     <header id="home" class="bg-primary text-white text-center py-5">
         <div class="container">
-            <h1>Your Name</h1>
+            <h1>Adesh Shah</h1>
             <p class="lead">Junior Web Developer</p>
         </div>
     </header>
@@ -41,6 +41,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume-button">Resume</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -93,6 +94,7 @@
     </section>
 
     <section class="resume-section">
+        
         <a id="resume-button" href="#" target="_blank">View Resume</a>
     </section>
 
@@ -181,23 +183,25 @@
         <div class="row">  
             <div class="col-md-6">
                 <h2>Contact Me</h2>
-                <form action="mailto:aadishah74.as@gmail.com" method="post" enctype="text/plain">
+                <form id="my-form" method="post" action="https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec">
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
+                        <input type="text" id="name" name="Name" class="form-control" placeholder="Name" required>
                     </div>
-        
+                    <!-- <input name="Email" type="email" placeholder="Email" required>
+                    <input name="Name" type="text" placeholder="Name" required>
+                    <button type="submit">Send</button> -->
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <input type="email" name="Email" class="form-control"  placeholder="Email" required>
                     </div>
         
                     <div class="form-group">
                         <label for="message">Message:</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                        <textarea id="message" name="Message" class="form-control" rows="4" placeholder="Message" required></textarea>
                     </div>
         
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Send</button>
                 </form>
             </div> 
             <div class="col-md-6">
@@ -210,6 +214,8 @@
 
     <footer class="bg-dark text-white text-center py-3">
         <button id="scroll-to-top"><i class="lni lni-arrow-up"></i></button>
+         <!-- Theme Toggle Button -->
+        <button id="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
         <p>&copy; 2023 Your Name. All rights reserved.</p>
         <div class="social-links">
             <a href="#" target="_blank"><i class="lni lni-linkedin-original"></i></i></a>

@@ -1,6 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const form = document.getElementById('my-form');
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = e.target.action;
+      fetch(action, {
+        method: 'POST',
+        body: data,
+      })
+      .then(() => {
+        alert("Success!");
+      })
+    });
+
   var loadingBar = document.getElementById('loading-bar');
+  let currentTheme = localStorage.getItem('theme');
   var scrollToTopButton = document.getElementById('scroll-to-top');
+
+    // Apply the saved theme or default to light theme
+    document.body.classList.toggle(currentTheme || 'light-theme');
+    document.getElementById('theme-toggle').innerText = currentTheme === 'dark-theme' ? 'Light Theme' : 'Dark Theme';
+
 
   // Increment the width of the loading bar as the page loads
   var incrementWidth = function () {
@@ -53,8 +74,6 @@ function initMap() {
   });
 }
 
-
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -65,31 +84,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
   });
 });
+// Toggle between light and dark themes
+function toggleTheme() {
+    let currentTheme = document.body.classList.contains('light-theme') ? 'light-theme' : 'dark-theme';
+    let newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+
+    // Update the class on the body element
+    document.body.classList.replace(currentTheme, newTheme);
+
+    // Save the user's theme preference in local storage
+    localStorage.setItem('theme', newTheme);
+
+    // Update the theme toggle button text
+    document.getElementById('theme-toggle').innerText = newTheme === 'dark-theme' ? 'Light Theme' : 'Dark Theme';
+}
 
 // Animate progress bars and blog posts on scroll
-document.addEventListener('scroll', function () {
-  animateProgressBar();
-  animateBlogPosts();
-});
+// document.addEventListener('scroll', function () {
+//   animateProgressBar();
+//   animateBlogPosts();
+// });
 
-function animateProgressBar() {
-  var skillsTop = document.getElementById('skills').offsetTop - window.innerHeight + 200;
+// function animateProgressBar() {
+//   var skillsTop = document.getElementById('skills').offsetTop - window.innerHeight + 200;
 
-  if (window.scrollY > skillsTop) {
-      document.querySelectorAll('.progress-bar').forEach(function (progressBar) {
-          progressBar.style.width = progressBar.getAttribute('aria-valuenow') + '%';
-      });
-  }
-}
+//   if (window.scrollY > skillsTop) {
+//       document.querySelectorAll('.progress-bar').forEach(function (progressBar) {
+//           progressBar.style.width = progressBar.getAttribute('aria-valuenow') + '%';
+//       });
+//   }
+// }
 
-function animateBlogPosts() {
-  var blogTop = document.getElementById('blog').offsetTop - window.innerHeight + 200;
+// function animateBlogPosts() {
+//   var blogTop = document.getElementById('blog').offsetTop - window.innerHeight + 200;
 
-  if (window.scrollY > blogTop) {
-      document.querySelectorAll('.blog-post').forEach(function (blogPost, index) {
-          setTimeout(function () {
-              blogPost.style.opacity = '1';
-          }, 200 * index);
-      });
-  }
-}
+//   if (window.scrollY > blogTop) {
+//       document.querySelectorAll('.blog-post').forEach(function (blogPost, index) {
+//           setTimeout(function () {
+//               blogPost.style.opacity = '1';
+//           }, 200 * index);
+//       });
+//   }
+// }
+
+// const form = document.querySelector("form")
+// const submitButton = document.querySelector("#submit")
+// const scriptURL = 'https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec'
+
+window.addEventListener("load", function() {
+
+  });
+  

@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-
+    // const scriptURL = 'https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec'
+    // const form = document.getElementById('my-form');
+    // form.addEventListener("submit", function(e) {
+    //   e.preventDefault();
+    //   const data = new FormData(form);
+    //   fetch(scriptURL, {
+    //     method: 'POST',
+    //     body: data,
+    //     mode: 'no-cors',
+    //   })
+    //   .then(() => {
+    //   alert("Success")
+    //   })
+    // });
   var loadingBar = document.getElementById('loading-bar');
   let currentTheme = localStorage.getItem('theme');
   var scrollToTopButton = document.getElementById('scroll-to-top');
@@ -121,13 +133,3 @@ function toggleTheme() {
 // window.addEventListener("load", function() {
 
 //   });
-  
-const scriptURL = 'https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec'
-const form = document.forms['submit-to-google-sheet']
-
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })

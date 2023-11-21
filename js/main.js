@@ -1,18 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const form = document.getElementById('my-form');
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = e.target.action;
-      fetch(action, {
-        method: 'POST',
-        body: data,
-      })
-      .then(() => {
-        alert("Success!");
-      })
-    });
 
   var loadingBar = document.getElementById('loading-bar');
   let currentTheme = localStorage.getItem('theme');
@@ -131,7 +118,16 @@ function toggleTheme() {
 // const submitButton = document.querySelector("#submit")
 // const scriptURL = 'https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec'
 
-window.addEventListener("load", function() {
+// window.addEventListener("load", function() {
 
-  });
+//   });
   
+const scriptURL = 'https://script.google.com/macros/s/AKfycbypQzCCGdq3Ii0SHm_YI_s-REBYmFYTResfm1w2AGUJKlhIGHr6onz3s4qbig5rhlYm/exec'
+const form = document.forms['submit-to-google-sheet']
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
